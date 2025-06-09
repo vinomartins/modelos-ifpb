@@ -1,0 +1,196 @@
+\documentclass[11pt,addpoints,answers]{exam}
+
+\def\titulo{Nome da avaliação} % Avaliação I, II, reposição...
+\def\disciplina{Disciplina} % Nome da disciplina
+\def\curso{Curso - Período}
+\def\data{} % substituir por \today para data de hoje
+\def\professor{Vinicius Martins} % Substitui por seu nome
+% "ifpb.png" se a logo estiver no mesmo diretório
+% "../ifpb.png" se a logo estiver no diretório pai
+\def\caminhologo{ifpb.png} 
+
+
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{statistics}
+
+\usepackage{graphicx}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mdc}{\operatorname{mdc}}
+\newcommand{\mmc}{\operatorname{mmc}}
+\totalformat{Total da questão \thequestion: \totalpoints}
+
+\hyphenpenalty 10000
+%\usepackage[paperheight=5.8in,paperwidth=8.27in,bindingoffset=0in,left=0.8in,right=1in,
+%top=0.7in,bottom=1in,headsep=.5\baselineskip]{geometry}
+\flushbottom
+\usepackage[normalem]{ulem}
+\renewcommand\ULthickness{2pt}   %%---> For changing thickness of underline
+\setlength\ULdepth{1.5ex}%\maxdimen ---> For changing depth of underline
+\renewcommand{\baselinestretch}{1}
+\pagestyle{empty}
+
+\newcommand{\dx}{\operatorname{d}\!x}
+
+\pagestyle{headandfoot}
+\headrule
+\newcommand{\continuedmessage}{%
+\ifcontinuation{\footnotesize Question \ContinuedQuestion\ continues\ldots}{}%
+}
+\runningheader{\footnotesize }
+{\footnotesize \disciplina}
+{\footnotesize Página \thepage\ de \numpages}
+\footrule
+\footer{\footnotesize Bom Trabalho!}
+{}
+{\ifincomplete{\footnotesize Question \IncompleteQuestion\ Continua na próxima página \ldots}{\iflastpage{\footnotesize Fim da atividade}{\footnotesize Continua na próxima página \ldots}}}
+%
+\usepackage{cleveref}
+\crefname{figure}{figure}{figures}
+\crefname{question}{question}{questions}
+%
+%
+%==============================================================
+\begin{document}
+%%
+%% \thispagestyle{empty}
+%
+\noindent
+\begin{minipage}[l]{.1\textwidth}%
+\noindent
+\includegraphics[width=\textwidth]{\caminhologo}
+\end{minipage}%
+%
+\hfill
+\begin{minipage}[r]{.68\textwidth}%
+\begin{center}
+ {\large \bfseries \titulo\ -\ \disciplina  \par}
+ {\rm \curso}
+\end{center}
+\end{minipage}%
+%
+\fbox{\begin{minipage}[l]{.175\textwidth}%
+{\bf Prof.º}\\
+\noindent
+{ \professor }\\
+{\footnotesize Data: {$\rule{.6cm}{0.15mm}/\rule{.6cm}{0.15mm}/\rule{.6cm}{0.15mm}$}}
+\end{minipage}}%
+%
+\vspace{0.2cm}
+\par
+\emph{\bf Nome\ :\ \underline{\hspace{10cm}}\hspace{0.5cm}
+          Nota\ :\ \ \qquad   / 100}
+\par
+\noindent
+\uline{ \hfill}
+%
+
+\pointsdroppedatright
+\boxedpoints
+\pointsinmargin
+\phantom{.}
+
+\begin{questions}
+
+  \question[20]
+  Um grupo de estudantes foi submetido a um teste de matemática e os resultados foram
+  condensados na seguinte tabela de frequência:
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+      Nota & Frequência \\ \hline
+      $0 \vdash 2$ & 14 \\
+      $2 \vdash 4$ & 28 \\
+      $4 \vdash 6$ & 27 \\
+      $6 \vdash 8$ & 11 \\
+      $8 \vdash 10$ & 4 \\
+    \end{tabular}
+  \end{table}
+  \begin{itemize}
+    \item[a)] Construa um histograma das notas obtidas.
+    \item[b)] Se a nota mínima para ter direito a recuperação é $4$, qual
+      é a porcentagem dos alunos que \textbf{não} obtiveram nota suficiente 
+      ter direito a recuperação?
+    \item[c)] Se a nota mínima para a aprovação direta é $7$, é possível calcular
+      a porcentagem dos alunos que foram aprovados diretamente? Justifique. Caso seja impossível,
+      você consegue estimar esse valor (por exemplo, apresentar um intervalo que contenha
+      o valor real).
+  \end{itemize}
+
+  \question[15]
+  Sejam $A$ e $B$ dois eventos em um dado espaço amostral,
+  tais que $P(A) = .2$, $P(B) = p$, $P(A\cup B) = .5$ e $P(A \cap B) = .1$.
+  Determine o valor de $p$.
+
+  \question[15]
+  Analise a afirmação a seguir:
+  \begin{tcolorbox}
+  Estatísticas do Departamento de Trânsito do Rio Grande do Sul informam que
+  cerca de $44\%$ dos condutores mortos em acidentes de trânsito nesse estado
+  em 2022 estavam alcoolizados, de forma que cerca de $56\%$ estavam sóbrios.
+  Dessa forma é possível concluir que é mais seguro conduzir alcoolizado já
+  que, dado que um condutor morreu em um acidente, é mais provável que ele
+  estivesse sóbrio do que alcoolizado.
+
+  \end{tcolorbox}
+  Você concorda com a afirmação? Caso não concorde explique por que ela estaria
+  errada.
+  \question
+  Um médico desconfia que um paciente tem um tumor no abdômen, pois isto
+  ocorreu em $\alpha = 60\%$  dos casos similares que tratou. Para auxiliar
+  no diagnóstico, 
+  recomendou ao paciente que fizesse um ultrassom. Se o paciente de fato
+  tiver o tumor, o exame de ultrassom o detectará com uma probabilidade
+  de $\beta = .90$. Entretanto, se ele não tiver o tumor, o exame pode,  
+  erroneamente, 
+  indicar que o tem com probabilidade de $\gamma = .15$.  
+  \begin{parts}
+    \part[15] Quais são as taxas de falso positivo e falso negativo do exame?
+    \part[20] Se o exame detectou o tumor, qual é a probabilidade do paciente
+    tê-lo de fato?
+    \part[15] Sem refazer os cálculos, o que ocorreria com o a probabilidade do
+    item $b)$ nos seguintes casos: 1) $\alpha$ diminuisse? 2) $\gamma$
+    aumentasa?
+  \end{parts}
+
+  \question[30]
+  A probabilidade de um jogador de basquete acertar uma cesta em um
+  lance livre é deve $p$. Encontre o menor valor de $p$ para que
+  a probabilidade dele acertar ao menos uma cesta em dois lances livres
+  seja de $80\%$  supondo que as probabilidades no primeiro e segundo
+  lançamento são independentes.
+
+  \question[20]
+  Numa certa população, a probabilidade de gostar de teatro é de um $1/3$,
+  enquanto a de gostar de cinema é de $1/2$. Determina a probabilidade de
+  gostar de teatro e não de cinema nos seguintes casos:
+  \begin{itemize}
+    \item[a)] Gostar de teatro e gostar de cinema são eventos disjuntos.
+    \item[b)] Gostar de teatro e gostar de cinema são eventos independentes.
+    \item[c)] Todos que gostam de teatro gostam de cinema.
+    \item[d)] A probabilidade de gostar de teatro e de cinema é de $1/8$.
+    \item[e)] Dentre os que não gostam de cinema, a probabilidade de
+      não gostar de teatro é de $3/4$.
+  \end{itemize}
+
+\end{questions}
+
+
+
+\begin{center}
+\hqword{Questão}
+\hpword{Pontos}
+\hsword{Nota}
+\gradetable[h][questions]
+\end{center}
+
+\end{document}
